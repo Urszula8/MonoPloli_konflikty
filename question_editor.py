@@ -1,9 +1,11 @@
 import tkinter as tk
 from tkinter import ttk, filedialog, messagebox, simpledialog
 import json
+import os
 import prowadzacy_window
 
-# Główna funkcja uruchamiająca edytor pytań
+# Ścieżka do domyślnego pliku bazy danych
+SCIEZKA_PLIKU_JSON = "baza_pytan.json"
 
 def uruchom_edycje():
     edytor = tk.Tk()
@@ -100,24 +102,24 @@ def uruchom_edycje():
             else:
                 messagebox.showwarning("Błąd", "Uzupełnij wszystkie pola")
 
-    # Zapis danych do pliku JSON
+    # Zapis danych do jednego, stałego pliku JSON
     def save_to_file():
-        path = filedialog.asksaveasfilename(defaultextension=".json")
-        if path:
-            with open(path, 'w', encoding='utf-8') as f:
-                json.dump(questions, f, ensure_ascii=False, indent=2)
+        with open(SCIEZKA_PLIKU_JSON, 'w', encoding='utf-8') as f:
+            json.dump(questions, f, ensure_ascii=False, indent=2)
+            messagebox.showinfo("Zapisano", f"Pytania zapisane do pliku: {SCIEZKA_PLIKU_JSON}")
 
-    # Wczytanie danych z pliku JSON
+    # Wczytanie danych z tego samego pliku
     def load_from_file():
-        path = filedialog.askopenfilename(filetypes=[("JSON files", "*.json")])
-        if path:
-            with open(path, 'r', encoding='utf-8') as f:
-                loaded = json.load(f)
-            questions.clear()
-            questions.extend(loaded)
-            tree.delete(*tree.get_children())
-            for q in questions:
-                tree.insert('', 'end', values=(q['text'], q['type'], q.get('options', ''), q.get('correct', '')))
+        if not os.path.exists(SCIEZKA_PLIKU_JSON):
+            messagebox.showwarning("Brak pliku", f"Plik {SCIEZKA_PLIKU_JSON} nie istnieje.")
+            return
+        with open(SCIEZKA_PLIKU_JSON, 'r', encoding='utf-8') as f:
+            loaded = json.load(f)
+        questions.clear()
+        questions.extend(loaded)
+        tree.delete(*tree.get_children())
+        for q in questions:
+            tree.insert('', 'end', values=(q['text'], q['type'], q.get('options', ''), q.get('correct', '')))
 
     # Usuwanie zaznaczonego pytania
     def delete_selected():
@@ -136,5 +138,8 @@ def uruchom_edycje():
     tk.Button(edytor, text="Wczytaj z pliku", command=load_from_file).pack(pady=5)
     tk.Button(edytor, text="Usuń zaznaczone pytanie", command=delete_selected).pack(pady=5)
     tk.Button(edytor, text="Powrót", command=lambda: [edytor.destroy(), prowadzacy_window.uruchom_okno_prowadzacy()]).pack(pady=10)
+
+    # Automatyczne wczytanie pytań przy starcie
+    load_from_file()
 
     edytor.mainloop()
