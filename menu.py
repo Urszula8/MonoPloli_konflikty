@@ -1,11 +1,11 @@
 import tkinter as tk
 from PIL import Image, ImageTk
-import student_window
+import login_screen
 import prowadzacy_window
 
 def student_przycisk(root):
     root.destroy()
-    student_window.uruchom_okno_student()
+    login_screen.uruchom_ekran_logowania()
 
 def prowadzacy_przycisk(root):
     root.destroy()

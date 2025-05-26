@@ -5,7 +5,7 @@ import menu
 def powrot_przycisk(okno):
     okno.destroy()
     menu.main()
-def uruchom_okno_student():
+def uruchom_okno_student(login):
     okno = tk.Tk()
     okno.title("Okno Studenta")
     okno.geometry("1920x1080")
