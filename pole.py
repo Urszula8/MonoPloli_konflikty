@@ -1,10 +1,14 @@
 import tkinter as tk
-POLE_X=70
-POLE_Y=50
+from PIL import Image, ImageTk
+import plansza
+from plansza import *
 
 
 class Pole:
     def __init__(self, x, y):
         self.x = x
         self.y = y
-        self.pytanie = None
+        self.filename = "logo.png"
+        self.wlasciwosc = None
+        obraz = Image.open(self.filename).resize((plansza.POLE_X, plansza.POLE_Y))
+        self.photo = ImageTk.PhotoImage(obraz)

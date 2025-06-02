@@ -1,7 +1,8 @@
 from PIL import Image, ImageTk
 import tkinter as tk
 import menu
-from pole import *
+from nieobecnosc import *
+from plansza import *
 
 def powrot_przycisk(okno):
     okno.destroy()
@@ -31,7 +32,7 @@ def uruchom_okno_student():
 
     logo_label = tk.Label(okno, image=logo_photo, bg="#e2dbd8")
     logo_label.image = logo_photo
-    logo_label.place(x=300,y=-250)
+    logo_label.place(x=300,y=-280)
 
     #przygotowanie ekranu ładowania
     ladowanie_tlo = tk.Canvas(okno, width=450, height=330, bg="#f3eee6")
@@ -44,21 +45,8 @@ def uruchom_okno_student():
     ranking_text = ranking_tlo.create_text(105,35,text="RANKING: ",fill="white",font=('Inter 25'))
 
     #przygotowanie pól
-    pole1=Pole(1,2)
-    pola_gora = [Pole(POLE_X * (i+1)+350, 150) for i in range(0,10)]
-    pola_dol = [Pole(POLE_X * (i+1)+350, POLE_Y+500) for i in range(0,10)]
-    pola_lewo = [Pole(350, POLE_Y * i+150) for i in range(0, 9)]
-    pola_prawo = [Pole(POLE_X*11+350, POLE_Y * i+150) for i in range(0, 9)]
-
-    pola = pola_gora + pola_dol + pola_lewo + pola_prawo
-    pola_tlo = [tk.Canvas(okno, width=POLE_X, height=POLE_Y, bg="green") for i in pola]
-    for i in range(0,len(pola)):
-        pola_tlo[i].place(x=pola[i].x, y=pola[i].y)
-
-
-
-
-
-
+    plansza_do_gry=Plansza(okno,11,8,100,400,70,50)
+    plansza_do_gry.WypelnijDomyslnie()
+    plansza_do_gry.Rysuj()
 
     okno.mainloop()
