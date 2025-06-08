@@ -26,14 +26,16 @@ class Plansza:
         pola_lewo = [pole.Pole(margin_left, pole_y * i + margin_top) for i in range(0, length)]
         pola_lewo.reverse()
         pola_prawo = [pole.Pole(pole_x * (width+1) + margin_left, pole_y * i + margin_top) for i in range(0, length)]
-        self.pola=pola_gora + pola_prawo + pola_dol + pola_lewo
+        self.pola=pola_dol + pola_lewo + pola_gora + pola_prawo
+        self.pola.insert(0,self.pola[len(self.pola)-1])
+        self.pola.pop()
         self.okno=okno
 
     def Rysuj(self):
         for p in self.pola:
-            logo_label = tk.Label(self.okno, image=p.photo, bg="#e2dbd8")
-            logo_label.image = p.photo
-            logo_label.place(x=p.x, y=p.y)
+            p.tlo = tk.Canvas(self.okno, width=POLE_X, height=POLE_Y, bg="#e2dbd8")
+            p.tlo.place(x=p.x, y=p.y)
+            p.tlo.create_image(POLE_X/2+2,POLE_Y/2+1,image=p.photo)
 
     def WypelnijDomyslnie(self):
         for i in range(0, len(self.pola)):
