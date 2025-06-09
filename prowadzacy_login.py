@@ -22,7 +22,7 @@ def uruchom_logowanie_prowadzacy(prev_window):
     def zaloguj():
         login = login_entry.get()
         haslo = haslo_entry.get()
-        if zaloguj_uzytkownika(login, haslo):
+        if zaloguj_uzytkownika(login, haslo, rola="prowadzacy"):
             messagebox.showinfo("Sukces", "Zalogowano jako prowadzący!")
             root.destroy()
             prowadzacy_window.uruchom_okno_prowadzacy()

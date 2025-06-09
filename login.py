@@ -23,7 +23,7 @@ def uruchom_logowanie(prev_window):
     def zaloguj():
         login = login_entry.get()
         haslo = haslo_entry.get()
-        if zaloguj_uzytkownika(login, haslo):
+        if zaloguj_uzytkownika(login, haslo, rola="student"):
             messagebox.showinfo("Sukces", "Zalogowano pomyślnie!")
             root.destroy()
             student_window.uruchom_okno_student(login)
