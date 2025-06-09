@@ -9,7 +9,7 @@ def student_przycisk(root):
 
 def prowadzacy_przycisk(root):
     root.destroy()
-    prowadzacy_window.uruchom_okno_prowadzacy()
+    prowadzacy_login.uruchom_logowanie_prowadzacy()
 
 def main():
     root = tk.Tk()
