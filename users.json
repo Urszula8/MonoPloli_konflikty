@@ -1,1 +1,7 @@
-{"Szymon": "6f461c677fce199125c96ba4241394a0f609b4c0ba47669564083102f9f0f2ee", "Test": "532eaabd9574880dbf76b9b8cc00832c20a6ec113d682299550d7a6e0f345e25"}
+[
+    {
+        "login": "PIO",
+        "haslo_hash": "65e1f9cad04cbc0babb8fed2c98ff63e531117732494ee9a1298cef1f80dbacb",
+        "rola": "prowadzacy"
+    }
+]
