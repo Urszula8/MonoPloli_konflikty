@@ -26,6 +26,17 @@ def zarejestruj_uzytkownika(login, haslo):
     _save_db(data)
     return True
 
-def zaloguj_uzytkownika(login, haslo):
-    data = _load_db()
-    return login in data and data[login] == hash_password(haslo)
+def zaloguj_uzytkownika(login, haslo, rola, sciezka="users.json"):
+    try:
+        with open(sciezka, "r", encoding="utf-8") as f:
+            users = json.load(f)
+    except FileNotFoundError:
+        return False
+
+    haslo_hash = hashlib.sha256(haslo.encode()).hexdigest()
+
+    for user in users:
+        if user["login"] == login and user["haslo_hash"] == haslo_hash and user["rola"] == rola:
+            return True
+    return False
+
