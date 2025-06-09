@@ -31,7 +31,7 @@ def uruchom_rejestracje(prev_window):
             messagebox.showerror("Błąd", "Hasła się nie zgadzają")
             return
 
-        if zarejestruj_uzytkownika(login, haslo):
+        if zarejestruj_uzytkownika(login, haslo, rola="student"):
             messagebox.showinfo("Sukces", "Rejestracja zakończona")
             root.destroy()
             login_screen.uruchom_ekran_logowania()

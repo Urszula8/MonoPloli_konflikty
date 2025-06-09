@@ -3,5 +3,10 @@
         "login": "PIO",
         "haslo_hash": "65e1f9cad04cbc0babb8fed2c98ff63e531117732494ee9a1298cef1f80dbacb",
         "rola": "prowadzacy"
+    },
+    {
+        "login": "Szymon",
+        "haslo_hash": "6f461c677fce199125c96ba4241394a0f609b4c0ba47669564083102f9f0f2ee",
+        "rola": "student"
     }
 ]
