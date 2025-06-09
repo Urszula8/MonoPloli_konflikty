@@ -6,7 +6,6 @@ from database import zaloguj_uzytkownika
 import prowadzacy_window
 
 def uruchom_logowanie_prowadzacy(prev_window):
-    prev_window.destroy()
     root = tk.Tk()
     root.title("Logowanie Prowadzącego")
     root.geometry("1920x1080")
