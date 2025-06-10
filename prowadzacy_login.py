@@ -1,14 +1,13 @@
 import tkinter as tk
 from tkinter import messagebox
 
-from database import zaloguj_uzytkownika
-import student_window
 import login_screen
+from database import zaloguj_uzytkownika
+import prowadzacy_window
 
-def uruchom_logowanie(prev_window):
-    prev_window.destroy()
+def uruchom_logowanie_prowadzacy(prev_window):
     root = tk.Tk()
-    root.title("Logowanie")
+    root.title("Logowanie Prowadzącego")
     root.geometry("1920x1080")
     root.configure(bg="#e2dbd8")
 
@@ -23,15 +22,15 @@ def uruchom_logowanie(prev_window):
     def zaloguj():
         login = login_entry.get()
         haslo = haslo_entry.get()
-        if zaloguj_uzytkownika(login, haslo, rola="student"):
-            messagebox.showinfo("Sukces", "Zalogowano pomyślnie!")
+        if zaloguj_uzytkownika(login, haslo, rola="prowadzacy"):
+            messagebox.showinfo("Sukces", "Zalogowano jako prowadzący!")
             root.destroy()
-            student_window.uruchom_okno_student(login)
+            prowadzacy_window.uruchom_okno_prowadzacy()
         else:
             messagebox.showerror("Błąd", "Nieprawidłowy login lub hasło")
 
     tk.Button(root, text="Zaloguj", command=zaloguj).pack(pady=10)
-    tk.Button(root, text="Powrót", command=lambda: powrot_do_ekranu_wyboru(root)).pack(pady=10)
+    tk.Button(root, text="Powrót", command=lambda: powrot_do_menu(root)).pack(pady=10)
 
     root.mainloop()
 

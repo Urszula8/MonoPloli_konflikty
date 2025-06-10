@@ -2,6 +2,7 @@ import tkinter as tk
 from PIL import Image, ImageTk
 import login_screen
 import prowadzacy_window
+import prowadzacy_login
 
 def student_przycisk(root):
     root.destroy()
@@ -9,7 +10,7 @@ def student_przycisk(root):
 
 def prowadzacy_przycisk(root):
     root.destroy()
-    prowadzacy_window.uruchom_okno_prowadzacy()
+    prowadzacy_login.uruchom_logowanie_prowadzacy(root)
 
 def main():
     root = tk.Tk()
