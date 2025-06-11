@@ -56,6 +56,12 @@ def uruchom_okno_student(login):
     # umieszczenie pionka gracza na polu startowym
     gracz.pionek.wyswietlPionek(plansza_do_gry, 0)
 
-  
+    # === ŁADOWANIE PYTAŃ ===
+    with open("baza_pytan.json", "r", encoding="utf-8") as f:
+        wszystkie_pytania = json.load(f)
+    pytania_wiedza = [p for p in wszystkie_pytania if p["type"] == "Sprawdzenie wiedzy"]
+    pytania_sesja = [p for p in wszystkie_pytania if p["type"] == "Sesja egzaminacyjna"]
+
+    
 
     okno.mainloop()
