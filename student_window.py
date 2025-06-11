@@ -4,7 +4,7 @@ import menu
 from nieobecnosc import *
 from plansza import *
 from student import Student
-
+from kostki import zaladuj_grafiki_kostek, stworz_labelki_kostek, dodaj_przycisk_rzutu
 
 def powrot_przycisk(okno):
     okno.destroy()
