@@ -5,7 +5,7 @@ import json
 from nieobecnosc import *
 from plansza import *
 from student import Student
-
+import question_popup 
 
 def powrot_przycisk(okno):
     okno.destroy()
@@ -62,6 +62,17 @@ def uruchom_okno_student(login):
     pytania_wiedza = [p for p in wszystkie_pytania if p["type"] == "Sprawdzenie wiedzy"]
     pytania_sesja = [p for p in wszystkie_pytania if p["type"] == "Sesja egzaminacyjna"]
 
-    
+    # === FUNKCJA: sprawdzenie pola i pytanie ===
+    def sprawdz_pole():
+        pole = plansza_do_gry.pola[gracz.pionek.numerPola]
+        typ = type(pole).__name__
+
+        if typ == "SprawdzenieWiedzy" and pytania_wiedza:
+            pytanie = pytania_wiedza.pop(0)
+            question_popup.pokaz_pytanie(okno, pytanie)
+        elif typ == "SesjaEgzaminacyjna" and pytania_sesja:
+            pytanie = pytania_sesja.pop(0)
+            question_popup.pokaz_pytanie(okno, pytanie)
+   
 
     okno.mainloop()
