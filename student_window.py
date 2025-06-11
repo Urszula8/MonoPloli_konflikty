@@ -1,15 +1,15 @@
 from PIL import Image, ImageTk
 import tkinter as tk
 import menu
+import json
 from nieobecnosc import *
 from plansza import *
 from student import Student
-
+import question_popup  # dodany import
 
 def powrot_przycisk(okno):
     okno.destroy()
     menu.main()
-
 
 def uruchom_okno_student(login):
     okno = tk.Tk()
@@ -21,7 +21,6 @@ def uruchom_okno_student(login):
     # Przygotowanie grafiki przycisku
     powrot_img = Image.open("powrot.png").resize((210, 70))
     powrot_photo = ImageTk.PhotoImage(powrot_img)
-
     powrot_button = tk.Button(okno, image=powrot_photo, command=lambda: powrot_przycisk(okno), borderwidth=0)
     powrot_button.image = powrot_photo
     powrot_button.place(x=50, y=30)
@@ -34,7 +33,6 @@ def uruchom_okno_student(login):
     # Wczytanie logo
     logo_img = Image.open("logo2.png").resize((800, 700))
     logo_photo = ImageTk.PhotoImage(logo_img)
-
     logo_label = tk.Label(okno, image=logo_photo, bg="#e2dbd8")
     logo_label.image = logo_photo
     logo_label.place(x=300, y=-280)
@@ -57,5 +55,30 @@ def uruchom_okno_student(login):
 
     # umieszczenie pionka gracza na polu startowym
     gracz.pionek.wyswietlPionek(plansza_do_gry, 0)
+
+    # === ŁADOWANIE PYTAŃ ===
+    with open("baza_pytan.json", "r", encoding="utf-8") as f:
+        wszystkie_pytania = json.load(f)
+    pytania_wiedza = [p for p in wszystkie_pytania if p["type"] == "Sprawdzenie wiedzy"]
+    pytania_sesja = [p for p in wszystkie_pytania if p["type"] == "Sesja egzaminacyjna"]
+
+    # === FUNKCJA: sprawdzenie pola i pytanie ===
+    def sprawdz_pole():
+        pole = plansza_do_gry.pola[gracz.pionek.numerPola]
+        typ = type(pole).__name__
+
+        if typ == "SprawdzenieWiedzy" and pytania_wiedza:
+            pytanie = pytania_wiedza.pop(0)
+            question_popup.pokaz_pytanie(okno, pytanie)
+        elif typ == "SesjaEgzaminacyjna" and pytania_sesja:
+            pytanie = pytania_sesja.pop(0)
+            question_popup.pokaz_pytanie(okno, pytanie)
+    def rusz_o_jedno_pole():
+        gracz.pionek.numerPola = (gracz.pionek.numerPola + 1) % len(plansza_do_gry.pola)
+        gracz.pionek.wyswietlPionek(plansza_do_gry, gracz.pionek.numerPola)
+        sprawdz_pole()
+    # === TYM PRZYCISK: testuj pytanie ===
+    tk.Button(okno, text="Rusz o 1 pole", command=rusz_o_jedno_pole).place(x=900, y=700)
+    tk.Button(okno, text="Sprawdź pole (test)", command=sprawdz_pole).place(x=900, y=750)
 
     okno.mainloop()

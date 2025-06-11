@@ -1,1 +1,242 @@
-[]
+[
+  {
+    "text": "Sprawdzenie wiedzy nr 12: Ile to jest 12+12?",
+    "type": "Sprawdzenie wiedzy",
+    "options": "",
+    "correct": "24"
+  },
+  {
+    "text": "Sesja egzaminacyjna nr 9: Który wynik jest poprawny dla 9*2?",
+    "type": "Sesja egzaminacyjna",
+    "options": "A) 10, B) 18, C) 27, D) 36",
+    "correct": "B"
+  },
+  {
+    "text": "Sprawdzenie wiedzy nr 16: Ile to jest 16+16?",
+    "type": "Sprawdzenie wiedzy",
+    "options": "",
+    "correct": "32"
+  },
+  {
+    "text": "Sprawdzenie wiedzy nr 2: Ile to jest 2+2?",
+    "type": "Sprawdzenie wiedzy",
+    "options": "",
+    "correct": "4"
+  },
+  {
+    "text": "Sesja egzaminacyjna nr 20: Który wynik jest poprawny dla 20*2?",
+    "type": "Sesja egzaminacyjna",
+    "options": "A) 21, B) 40, C) 60, D) 80",
+    "correct": "B"
+  },
+  {
+    "text": "Sprawdzenie wiedzy nr 3: Ile to jest 3+3?",
+    "type": "Sprawdzenie wiedzy",
+    "options": "",
+    "correct": "6"
+  },
+  {
+    "text": "Sesja egzaminacyjna nr 16: Który wynik jest poprawny dla 16*2?",
+    "type": "Sesja egzaminacyjna",
+    "options": "A) 17, B) 32, C) 48, D) 64",
+    "correct": "B"
+  },
+  {
+    "text": "Sesja egzaminacyjna nr 4: Który wynik jest poprawny dla 4*2?",
+    "type": "Sesja egzaminacyjna",
+    "options": "A) 5, B) 8, C) 12, D) 16",
+    "correct": "B"
+  },
+  {
+    "text": "Sesja egzaminacyjna nr 1: Który wynik jest poprawny dla 1*2?",
+    "type": "Sesja egzaminacyjna",
+    "options": "A) 2, B) 2, C) 3, D) 4",
+    "correct": "B"
+  },
+  {
+    "text": "Sesja egzaminacyjna nr 6: Który wynik jest poprawny dla 6*2?",
+    "type": "Sesja egzaminacyjna",
+    "options": "A) 7, B) 12, C) 18, D) 24",
+    "correct": "B"
+  },
+  {
+    "text": "Sprawdzenie wiedzy nr 7: Ile to jest 7+7?",
+    "type": "Sprawdzenie wiedzy",
+    "options": "",
+    "correct": "14"
+  },
+  {
+    "text": "Sprawdzenie wiedzy nr 1: Ile to jest 1+1?",
+    "type": "Sprawdzenie wiedzy",
+    "options": "",
+    "correct": "2"
+  },
+  {
+    "text": "Sesja egzaminacyjna nr 12: Który wynik jest poprawny dla 12*2?",
+    "type": "Sesja egzaminacyjna",
+    "options": "A) 13, B) 24, C) 36, D) 48",
+    "correct": "B"
+  },
+  {
+    "text": "Sprawdzenie wiedzy nr 4: Ile to jest 4+4?",
+    "type": "Sprawdzenie wiedzy",
+    "options": "",
+    "correct": "8"
+  },
+  {
+    "text": "Sesja egzaminacyjna nr 10: Który wynik jest poprawny dla 10*2?",
+    "type": "Sesja egzaminacyjna",
+    "options": "A) 11, B) 20, C) 30, D) 40",
+    "correct": "B"
+  },
+  {
+    "text": "Sesja egzaminacyjna nr 2: Który wynik jest poprawny dla 2*2?",
+    "type": "Sesja egzaminacyjna",
+    "options": "A) 3, B) 4, C) 6, D) 8",
+    "correct": "B"
+  },
+  {
+    "text": "Sprawdzenie wiedzy nr 19: Ile to jest 19+19?",
+    "type": "Sprawdzenie wiedzy",
+    "options": "",
+    "correct": "38"
+  },
+  {
+    "text": "Sprawdzenie wiedzy nr 14: Ile to jest 14+14?",
+    "type": "Sprawdzenie wiedzy",
+    "options": "",
+    "correct": "28"
+  },
+  {
+    "text": "Sprawdzenie wiedzy nr 18: Ile to jest 18+18?",
+    "type": "Sprawdzenie wiedzy",
+    "options": "",
+    "correct": "36"
+  },
+  {
+    "text": "Sprawdzenie wiedzy nr 13: Ile to jest 13+13?",
+    "type": "Sprawdzenie wiedzy",
+    "options": "",
+    "correct": "26"
+  },
+  {
+    "text": "Sesja egzaminacyjna nr 13: Który wynik jest poprawny dla 13*2?",
+    "type": "Sesja egzaminacyjna",
+    "options": "A) 14, B) 26, C) 39, D) 52",
+    "correct": "B"
+  },
+  {
+    "text": "Sesja egzaminacyjna nr 7: Który wynik jest poprawny dla 7*2?",
+    "type": "Sesja egzaminacyjna",
+    "options": "A) 8, B) 14, C) 21, D) 28",
+    "correct": "B"
+  },
+  {
+    "text": "Sesja egzaminacyjna nr 8: Który wynik jest poprawny dla 8*2?",
+    "type": "Sesja egzaminacyjna",
+    "options": "A) 9, B) 16, C) 24, D) 32",
+    "correct": "B"
+  },
+  {
+    "text": "Sesja egzaminacyjna nr 11: Który wynik jest poprawny dla 11*2?",
+    "type": "Sesja egzaminacyjna",
+    "options": "A) 12, B) 22, C) 33, D) 44",
+    "correct": "B"
+  },
+  {
+    "text": "Sesja egzaminacyjna nr 15: Który wynik jest poprawny dla 15*2?",
+    "type": "Sesja egzaminacyjna",
+    "options": "A) 16, B) 30, C) 45, D) 60",
+    "correct": "B"
+  },
+  {
+    "text": "Sesja egzaminacyjna nr 17: Który wynik jest poprawny dla 17*2?",
+    "type": "Sesja egzaminacyjna",
+    "options": "A) 18, B) 34, C) 51, D) 68",
+    "correct": "B"
+  },
+  {
+    "text": "Sprawdzenie wiedzy nr 10: Ile to jest 10+10?",
+    "type": "Sprawdzenie wiedzy",
+    "options": "",
+    "correct": "20"
+  },
+  {
+    "text": "Sprawdzenie wiedzy nr 8: Ile to jest 8+8?",
+    "type": "Sprawdzenie wiedzy",
+    "options": "",
+    "correct": "16"
+  },
+  {
+    "text": "Sprawdzenie wiedzy nr 15: Ile to jest 15+15?",
+    "type": "Sprawdzenie wiedzy",
+    "options": "",
+    "correct": "30"
+  },
+  {
+    "text": "Sprawdzenie wiedzy nr 17: Ile to jest 17+17?",
+    "type": "Sprawdzenie wiedzy",
+    "options": "",
+    "correct": "34"
+  },
+  {
+    "text": "Sesja egzaminacyjna nr 3: Który wynik jest poprawny dla 3*2?",
+    "type": "Sesja egzaminacyjna",
+    "options": "A) 4, B) 6, C) 9, D) 12",
+    "correct": "B"
+  },
+  {
+    "text": "Sprawdzenie wiedzy nr 9: Ile to jest 9+9?",
+    "type": "Sprawdzenie wiedzy",
+    "options": "",
+    "correct": "18"
+  },
+  {
+    "text": "Sesja egzaminacyjna nr 19: Który wynik jest poprawny dla 19*2?",
+    "type": "Sesja egzaminacyjna",
+    "options": "A) 20, B) 38, C) 57, D) 76",
+    "correct": "B"
+  },
+  {
+    "text": "Sesja egzaminacyjna nr 14: Który wynik jest poprawny dla 14*2?",
+    "type": "Sesja egzaminacyjna",
+    "options": "A) 15, B) 28, C) 42, D) 56",
+    "correct": "B"
+  },
+  {
+    "text": "Sesja egzaminacyjna nr 18: Który wynik jest poprawny dla 18*2?",
+    "type": "Sesja egzaminacyjna",
+    "options": "A) 19, B) 36, C) 54, D) 72",
+    "correct": "B"
+  },
+  {
+    "text": "Sprawdzenie wiedzy nr 20: Ile to jest 20+20?",
+    "type": "Sprawdzenie wiedzy",
+    "options": "",
+    "correct": "40"
+  },
+  {
+    "text": "Sesja egzaminacyjna nr 5: Który wynik jest poprawny dla 5*2?",
+    "type": "Sesja egzaminacyjna",
+    "options": "A) 6, B) 10, C) 15, D) 20",
+    "correct": "B"
+  },
+  {
+    "text": "Sprawdzenie wiedzy nr 5: Ile to jest 5+5?",
+    "type": "Sprawdzenie wiedzy",
+    "options": "",
+    "correct": "10"
+  },
+  {
+    "text": "Sprawdzenie wiedzy nr 11: Ile to jest 11+11?",
+    "type": "Sprawdzenie wiedzy",
+    "options": "",
+    "correct": "22"
+  },
+  {
+    "text": "Sprawdzenie wiedzy nr 6: Ile to jest 6+6?",
+    "type": "Sprawdzenie wiedzy",
+    "options": "",
+    "correct": "12"
+  }
+]

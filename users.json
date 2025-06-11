@@ -8,5 +8,10 @@
         "login": "Szymon",
         "haslo_hash": "6f461c677fce199125c96ba4241394a0f609b4c0ba47669564083102f9f0f2ee",
         "rola": "student"
+    },
+    {
+        "login": "i",
+        "haslo_hash": "de7d1b721a1e0632b7cf04edf5032c8ecffa9f9a08492152b926f1a5a7e765d7",
+        "rola": "student"
     }
 ]
