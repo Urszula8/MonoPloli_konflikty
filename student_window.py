@@ -58,4 +58,7 @@ def uruchom_okno_student(login):
     # umieszczenie pionka gracza na polu startowym
     gracz.pionek.wyswietlPionek(plansza_do_gry, 0)
 
+    grafiki_kostek = zaladuj_grafiki_kostek()
+    label1, label2 = stworz_labelki_kostek(okno, grafiki_kostek)
+
     okno.mainloop()
