@@ -73,6 +73,12 @@ def uruchom_okno_student(login):
         elif typ == "SesjaEgzaminacyjna" and pytania_sesja:
             pytanie = pytania_sesja.pop(0)
             question_popup.pokaz_pytanie(okno, pytanie)
-   
+    def rusz_o_jedno_pole():
+        gracz.pionek.numerPola = (gracz.pionek.numerPola + 1) % len(plansza_do_gry.pola)
+        gracz.pionek.wyswietlPionek(plansza_do_gry, gracz.pionek.numerPola)
+        sprawdz_pole()
+    # === TYM PRZYCISK: testuj pytanie ===
+    tk.Button(okno, text="Rusz o 1 pole", command=rusz_o_jedno_pole).place(x=900, y=700)
+    tk.Button(okno, text="Sprawdź pole (test)", command=sprawdz_pole).place(x=900, y=750)
 
     okno.mainloop()
