@@ -61,4 +61,11 @@ def uruchom_okno_student(login):
     grafiki_kostek = zaladuj_grafiki_kostek()
     label1, label2 = stworz_labelki_kostek(okno, grafiki_kostek)
 
+    def po_rzucie(wynik1, wynik2):
+        suma = wynik1 + wynik2
+        print(f"Rzucono: {wynik1} + {wynik2} = {suma}")
+        # tutaj funkcja do przesuwania pionka
+
+    dodaj_przycisk_rzutu(okno, label1, label2, grafiki_kostek, po_rzucie)
+
     okno.mainloop()
