@@ -64,7 +64,8 @@ def uruchom_okno_student(login):
     def po_rzucie(wynik1, wynik2):
         suma = wynik1 + wynik2
         print(f"Rzucono: {wynik1} + {wynik2} = {suma}")
-        # tutaj funkcja do przesuwania pionka
+        gracz.pionek.ruch(suma)
+        gracz.pionek.wyswietlPionek(plansza_do_gry, 0)  # 0 = indeks pionka (jeśli tylko 1 gracz)
 
     dodaj_przycisk_rzutu(okno, label1, label2, grafiki_kostek, po_rzucie)
 
