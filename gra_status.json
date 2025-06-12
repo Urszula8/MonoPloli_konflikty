@@ -1,9 +1,1 @@
-{
-  "status": "start",
-  "gracze": [
-    {
-      "login": "i",
-      "ects": 0
-    }
-  ]
-}
+{"status": "oczekiwanie", "gracze": []}

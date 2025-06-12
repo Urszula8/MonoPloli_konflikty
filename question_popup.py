@@ -35,10 +35,11 @@ def pokaz_pytanie(okno_glowne, pytanie, gracz=None, on_close=None):
 
         def zatwierdz():
             user_input = entry.get().strip()
+            popup.destroy()
             zamknij_popup(popup, user_input, pytanie['correct'], gracz, on_close)
 
         tk.Button(popup, text="Zatwierdź", command=zatwierdz).pack(pady=10)
-
+    
 
 def zamknij_popup(popup, odpowiedz, poprawna, gracz, on_close):
     if odpowiedz:
