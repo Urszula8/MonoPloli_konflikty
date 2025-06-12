@@ -24,6 +24,14 @@ class Pionek:
             self.numerPola = self.numerPola + liczbaPol
         return poprzednie_pole
 
-    def wyswietlPionek(self, plansza, ktoryPionek):
-        plansza.pola[self.numerPola].tlo.create_image(12+pos[ktoryPionek][0], 18+pos[ktoryPionek][1], image=plansza.pola[self.numerPola].pionek[self.kolor])
+    def wyswietlPionek(self, plansza, ktoryPionek, stare_pole=None):
+        if self.img_id and stare_pole is not None:
+            plansza.pola[stare_pole].tlo.delete(self.img_id)
+
+        self.img_id = plansza.pola[self.numerPola].tlo.create_image(
+            12 + pos[ktoryPionek][0],
+            18 + pos[ktoryPionek][1],
+            image=plansza.pola[self.numerPola].pionek[self.kolor]
+        )
+
 
