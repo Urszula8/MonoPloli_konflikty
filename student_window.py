@@ -20,7 +20,21 @@ def uruchom_okno_student(login):
     okno.title("Okno Studenta")
     okno.geometry("1920x1080")
     okno.configure(bg="#e2dbd8")
-    
+    def zarejestruj_gracza(login):
+        try:
+            with open("gra_status.json", "r", encoding="utf-8") as f:
+                dane = json.load(f)
+        except FileNotFoundError:
+            dane = {"status": "oczekiwanie", "gracze": []}
+
+        gracze = dane.get("gracze", [])
+        if not any(g["login"] == login for g in gracze):
+            gracze.append({"login": login, "ects": 0})
+            dane["gracze"] = gracze
+            with open("gra_status.json", "w", encoding="utf-8") as f:
+                json.dump(dane, f, indent=2)
+
+    zarejestruj_gracza(login)
     
     # Przygotowanie grafiki przycisku
     powrot_img = Image.open("powrot.png").resize((210, 70))
