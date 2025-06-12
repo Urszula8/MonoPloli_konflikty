@@ -92,7 +92,8 @@ def uruchom_okno_student(login):
     with open("baza_pytan.json", "r", encoding="utf-8") as f:
         wszystkie_pytania = json.load(f)
     pytania_wiedza = [p for p in wszystkie_pytania if p["type"] == "Sprawdzenie wiedzy"]
-    pytania_sesja = [p for p in wszystkie_pytania if p["type"] == "Sesja egzaminacyjna"]
+    pytania_sesja = [p for
+     p in wszystkie_pytania if p["type"] == "Sesja egzaminacyjna"]
 
     # === FUNKCJA: sprawdzenie pola i pytanie ===
     def sprawdz_pole():
@@ -110,7 +111,20 @@ def uruchom_okno_student(login):
         gracz.pionek.wyswietlPionek(plansza_do_gry, gracz.pionek.numerPola)
         sprawdz_pole()
     # === TYM PRZYCISK: testuj pytanie ===
-    
+    def sprawdz_start():
+        while True:
+            time.sleep(1)
+            if not os.path.exists("gra_status.json"):
+                continue
+            with open("gra_status.json", "r", encoding="utf-8") as f:
+                dane = json.load(f)
+            if dane["status"] == "start":
+                ladowanie_tlo.destroy()
+                plansza_do_gry.Rysuj()
+                gracz.pionek.wyswietlPionek(plansza_do_gry, gracz.pionek.numerPola)
+                break
+
+    threading.Thread(target=sprawdz_start, daemon=True).start()
     tk.Button(okno, text="Rusz o 1 pole", command=rusz_o_jedno_pole).place(x=900, y=700)
     tk.Button(okno, text="Sprawdź pole (test)", command=sprawdz_pole).place(x=900, y=750)
 
