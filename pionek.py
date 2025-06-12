@@ -16,12 +16,13 @@ class Pionek:
     def wybierzKolor(self,kolorPionka):
         self.kolor=kolorPionka
 
-    def ruch(self,liczbaPol):
-        if self.numerPola+liczbaPol>=LICZBA_POL:
-            self.numerPola=self.numerPola+liczbaPol-LICZBA_POL
+    def ruch(self, liczbaPol):
+        poprzednie_pole = self.numerPola
+        if self.numerPola + liczbaPol >= LICZBA_POL:
+            self.numerPola = self.numerPola + liczbaPol - LICZBA_POL
         else:
-            self.numerPola=self.numerPola+liczbaPol
-
+            self.numerPola = self.numerPola + liczbaPol
+        return poprzednie_pole
 
     def wyswietlPionek(self, plansza, ktoryPionek):
         plansza.pola[self.numerPola].tlo.create_image(12+pos[ktoryPionek][0], 18+pos[ktoryPionek][1], image=plansza.pola[self.numerPola].pionek[self.kolor])
