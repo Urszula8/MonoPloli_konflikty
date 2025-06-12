@@ -1,6 +1,6 @@
 import tkinter as tk
 from tkinter import messagebox
-
+import menu
 import login_screen
 from database import zaloguj_uzytkownika
 import prowadzacy_window
@@ -34,6 +34,6 @@ def uruchom_logowanie_prowadzacy(prev_window):
 
     root.mainloop()
 
-def powrot_do_ekranu_wyboru(current_root):
-    current_root.destroy()
-    login_screen.uruchom_ekran_logowania()
+def powrot_do_menu(root):
+    root.destroy()
+    menu.main()

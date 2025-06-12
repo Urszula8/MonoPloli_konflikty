@@ -5,6 +5,7 @@ import json
 from nieobecnosc import *
 from plansza import *
 from student import Student
+from kostki import zaladuj_grafiki_kostek, stworz_labelki_kostek, dodaj_przycisk_rzutu
 import question_popup 
 
 def powrot_przycisk(okno):
@@ -56,6 +57,15 @@ def uruchom_okno_student(login):
     # umieszczenie pionka gracza na polu startowym
     gracz.pionek.wyswietlPionek(plansza_do_gry, 0)
 
+    grafiki_kostek = zaladuj_grafiki_kostek()
+    label1, label2 = stworz_labelki_kostek(okno, grafiki_kostek)
+
+    def po_rzucie(wynik1, wynik2):
+        suma = wynik1 + wynik2
+        print(f"Rzucono: {wynik1} + {wynik2} = {suma}")
+        # tutaj funkcja do przesuwania pionka
+
+    dodaj_przycisk_rzutu(okno, label1, label2, grafiki_kostek, po_rzucie)
     # === ŁADOWANIE PYTAŃ ===
     with open("baza_pytan.json", "r", encoding="utf-8") as f:
         wszystkie_pytania = json.load(f)
