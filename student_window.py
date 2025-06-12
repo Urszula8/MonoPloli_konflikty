@@ -92,8 +92,7 @@ def uruchom_okno_student(login):
     with open("baza_pytan.json", "r", encoding="utf-8") as f:
         wszystkie_pytania = json.load(f)
     pytania_wiedza = [p for p in wszystkie_pytania if p["type"] == "Sprawdzenie wiedzy"]
-    pytania_sesja = [p for
-     p in wszystkie_pytania if p["type"] == "Sesja egzaminacyjna"]
+    pytania_sesja = [p for p in wszystkie_pytania if p["type"] == "Sesja egzaminacyjna"]
 
     # === FUNKCJA: sprawdzenie pola i pytanie ===
     def sprawdz_pole():
@@ -129,4 +128,3 @@ def uruchom_okno_student(login):
     tk.Button(okno, text="Sprawdź pole (test)", command=sprawdz_pole).place(x=900, y=750)
 
     okno.mainloop()
-
