@@ -12,6 +12,7 @@ class Pionek:
     def __init__(self, kolor):
         self.kolor = kolor
         self.numerPola=0
+        self.img_id = None
 
     def wybierzKolor(self,kolorPionka):
         self.kolor=kolorPionka
