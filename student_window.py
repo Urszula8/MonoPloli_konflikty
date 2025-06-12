@@ -7,6 +7,9 @@ from plansza import *
 from student import Student
 from kostki import zaladuj_grafiki_kostek, stworz_labelki_kostek, dodaj_przycisk_rzutu
 import question_popup 
+import threading
+import time
+import os
 
 def powrot_przycisk(okno):
     okno.destroy()
@@ -18,7 +21,22 @@ def uruchom_okno_student(login):
     okno.title("Okno Studenta")
     okno.geometry("1920x1080")
     okno.configure(bg="#e2dbd8")
+    def zarejestruj_gracza(login):
+        try:
+            with open("gra_status.json", "r", encoding="utf-8") as f:
+                dane = json.load(f)
+        except FileNotFoundError:
+            dane = {"status": "oczekiwanie", "gracze": []}
 
+        gracze = dane.get("gracze", [])
+        if not any(g["login"] == login for g in gracze):
+            gracze.append({"login": login, "ects": 0})
+            dane["gracze"] = gracze
+            with open("gra_status.json", "w", encoding="utf-8") as f:
+                json.dump(dane, f, indent=2)
+
+    zarejestruj_gracza(login)
+    
     # Przygotowanie grafiki przycisku
     powrot_img = Image.open("powrot.png").resize((210, 70))
     powrot_photo = ImageTk.PhotoImage(powrot_img)
@@ -48,7 +66,21 @@ def uruchom_okno_student(login):
     ranking_tlo = tk.Canvas(okno, width=210, height=500, bg="#750006")
     ranking_tlo.place(x=50, y=200)
     ranking_tlo.create_text(105, 35, text="RANKING: ", fill="white", font='Inter 25')
+    ranking_canvas = tk.Canvas(okno, width=210, height=450, bg="#750006", highlightthickness=0)
+    ranking_canvas.place(x=50, y=240)
 
+    def odswiez_ranking():
+        try:
+            with open("gra_status.json", "r", encoding="utf-8") as f:
+                dane = json.load(f)
+            gracze = sorted(dane.get("gracze", []), key=lambda x: -x["ects"])
+            ranking_canvas.delete("all")
+            for idx, g in enumerate(gracze):
+                ranking_canvas.create_text(105, 50 + idx * 30, text=f"{g['login']}:  {g['ects']}", fill="white", font=("Arial", 14))
+        except:
+            pass
+        okno.after(1000, odswiez_ranking)
+    odswiez_ranking()
     # przygotowanie pól
     plansza_do_gry = Plansza(okno, 11, 8, 100, 400, 70, 50)
     plansza_do_gry.WypelnijDomyslnie()
@@ -79,15 +111,29 @@ def uruchom_okno_student(login):
 
         if typ == "SprawdzenieWiedzy" and pytania_wiedza:
             pytanie = pytania_wiedza.pop(0)
-            question_popup.pokaz_pytanie(okno, pytanie)
+            question_popup.pokaz_pytanie(okno, pytanie, gracz)
         elif typ == "SesjaEgzaminacyjna" and pytania_sesja:
             pytanie = pytania_sesja.pop(0)
-            question_popup.pokaz_pytanie(okno, pytanie)
+            question_popup.pokaz_pytanie(okno, pytanie, gracz)
     def rusz_o_jedno_pole():
         gracz.pionek.numerPola = (gracz.pionek.numerPola + 1) % len(plansza_do_gry.pola)
         gracz.pionek.wyswietlPionek(plansza_do_gry, gracz.pionek.numerPola)
         sprawdz_pole()
     # === TYM PRZYCISK: testuj pytanie ===
+    def sprawdz_start():
+        while True:
+            time.sleep(1)
+            if not os.path.exists("gra_status.json"):
+                continue
+            with open("gra_status.json", "r", encoding="utf-8") as f:
+                dane = json.load(f)
+            if dane["status"] == "start":
+                ladowanie_tlo.destroy()
+                plansza_do_gry.Rysuj()
+                gracz.pionek.wyswietlPionek(plansza_do_gry, gracz.pionek.numerPola)
+                break
+
+    threading.Thread(target=sprawdz_start, daemon=True).start()
     tk.Button(okno, text="Rusz o 1 pole", command=rusz_o_jedno_pole).place(x=900, y=700)
     tk.Button(okno, text="Sprawdź pole (test)", command=sprawdz_pole).place(x=900, y=750)
 
