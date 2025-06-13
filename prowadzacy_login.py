@@ -8,7 +8,11 @@ import prowadzacy_window
 def uruchom_logowanie_prowadzacy(prev_window):
     root = tk.Tk()
     root.title("Logowanie Prowadzącego")
-    root.geometry("1920x1080")
+
+    # Dynamiczne ustawienie rozmiaru okna na pełny ekran
+    screen_width = root.winfo_screenwidth()
+    screen_height = root.winfo_screenheight()
+    root.geometry(f"{screen_width}x{screen_height}")
     root.configure(bg="#e2dbd8")
 
     tk.Label(root, text="Login:").pack(pady=5)
