@@ -15,7 +15,11 @@ def prowadzacy_przycisk(root):
 def main():
     root = tk.Tk()
     root.title("Menu Gry")
-    root.geometry("1920x1080")
+
+    # Automatyczny rozmiar okna do wielkości ekranu
+    screen_width = root.winfo_screenwidth()
+    screen_height = root.winfo_screenheight()
+    root.geometry(f"{screen_width}x{screen_height}")
     root.configure(bg="#e2dbd8")
 
     # Wczytanie grafik

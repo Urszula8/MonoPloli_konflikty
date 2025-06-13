@@ -1,1 +1,9 @@
-{"status": "oczekiwanie", "gracze": []}
+{
+  "status": "oczekiwanie",
+  "gracze": [
+    {
+      "login": "Szymon",
+      "ects": 0
+    }
+  ]
+}
