@@ -10,7 +10,9 @@ import question_popup
 import threading
 import time
 import os
-
+def zakoncz_gre(okno, gracz):
+    tk.messagebox.showinfo("Koniec gry", f"Koniec pytań!\nZdobyte ECTS: {gracz.ects}")
+    okno.destroy()  
 def powrot_przycisk(okno):
     okno.destroy()
     menu.main()
@@ -94,27 +96,30 @@ def uruchom_okno_student(login):
 
     def po_rzucie(wynik1, wynik2):
         suma = wynik1 + wynik2
-        stare_pole = gracz.pionek.ruch(suma)
+        stare_pole = gracz.pionek.ruch(4)
         gracz.pionek.wyswietlPionek(plansza_do_gry, 0, stare_pole)
-
+        sprawdz_pole()
     dodaj_przycisk_rzutu(okno, label1, label2, grafiki_kostek, po_rzucie)
     # === ŁADOWANIE PYTAŃ ===
-    with open("baza_pytan.json", "r", encoding="utf-8") as f:
-        wszystkie_pytania = json.load(f)
-    pytania_wiedza = [p for p in wszystkie_pytania if p["type"] == "Sprawdzenie wiedzy"]
-    pytania_sesja = [p for p in wszystkie_pytania if p["type"] == "Sesja egzaminacyjna"]
+    
 
     # === FUNKCJA: sprawdzenie pola i pytanie ===
     def sprawdz_pole():
         pole = plansza_do_gry.pola[gracz.pionek.numerPola]
         typ = type(pole).__name__
 
-        if typ == "SprawdzenieWiedzy" and pytania_wiedza:
-            pytanie = pytania_wiedza.pop(0)
-            question_popup.pokaz_pytanie(okno, pytanie, gracz)
-        elif typ == "SesjaEgzaminacyjna" and pytania_sesja:
-            pytanie = pytania_sesja.pop(0)
-            question_popup.pokaz_pytanie(okno, pytanie, gracz)
+        if typ == "SprawdzenieWiedzy" and gracz.pytania_wiedza:
+            if gracz.pytania_wiedza:
+                pytanie = gracz.pytania_wiedza.pop(0)
+                question_popup.pokaz_pytanie(okno, pytanie, gracz)
+            else:
+                zakoncz_gre(okno, gracz)
+        elif typ == "SesjaEgzaminacyjna" and gracz.pytania_sesja:
+            if gracz.pytania_sesja:
+                pytanie =  pytanie = gracz.pytania_sesja.pop(0)
+                question_popup.pokaz_pytanie(okno, pytanie, gracz)
+            else:
+                zakoncz_gre(okno, gracz)
     def rusz_o_jedno_pole():
         gracz.pionek.numerPola = (gracz.pionek.numerPola + 1) % len(plansza_do_gry.pola)
         gracz.pionek.wyswietlPionek(plansza_do_gry, gracz.pionek.numerPola)
