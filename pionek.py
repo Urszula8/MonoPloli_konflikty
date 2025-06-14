@@ -49,20 +49,22 @@ class Pionek:
                     callback()
                 return
 
-        nastepne_pole = kroki.pop(0)
+            nastepne_pole = kroki.pop(0)
 
-        if self.img_id:
-            plansza.pola[self.numerPola].tlo.delete(self.img_id)
+            if self.img_id:
+                plansza.pola[self.numerPola].tlo.delete(self.img_id)
 
-        self.numerPola = nastepne_pole
-        self.img_id = plansza.pola[self.numerPola].tlo.create_image(
-            12 + pos[ktoryPionek][0],
-            18 + pos[ktoryPionek][1],
-            image=plansza.pola[self.numerPola].pionek[self.kolor]
-        )
+            self.numerPola = nastepne_pole
+            self.img_id = plansza.pola[self.numerPola].tlo.create_image(
+                12 + pos[ktoryPionek][0],
+                18 + pos[ktoryPionek][1],
+                image=plansza.pola[self.numerPola].pionek[self.kolor]
+            )
 
-        plansza.okno.after(300, wykonaj_krok)
+            plansza.okno.after(300, wykonaj_krok)
+
         wykonaj_krok()
+
 
 
 

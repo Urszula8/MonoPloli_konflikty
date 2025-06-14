@@ -99,8 +99,8 @@ def uruchom_okno_student(login):
 
     def po_rzucie(wynik1, wynik2):
         suma = wynik1 + wynik2
-        stare_pole = gracz.pionek.ruch(suma)
-        gracz.pionek.wyswietlPionek(plansza_do_gry, 0, stare_pole)
+        gracz.pionek.animowany_ruch(plansza_do_gry, 0, suma, sprawdz_pole)
+
 
     dodaj_przycisk_rzutu(okno, label1, label2, grafiki_kostek, po_rzucie)
     # === ŁADOWANIE PYTAŃ ===
