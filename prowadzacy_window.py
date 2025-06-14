@@ -4,9 +4,12 @@ import menu
 import question_editor
 import json
 import os
+
+
 def powrot_przycisk(okno):
     okno.destroy()
     menu.main()
+
 
 def uruchom_okno_prowadzacy():
     if not os.path.exists("gra_status.json"):
@@ -15,7 +18,11 @@ def uruchom_okno_prowadzacy():
 
     okno = tk.Tk()
     okno.title("Okno Prowadzącego")
-    okno.geometry("1920x1080")
+
+    # Dynamiczne ustawienie rozmiaru okna na pełny ekran
+    screen_width = okno.winfo_screenwidth()
+    screen_height = okno.winfo_screenheight()
+    okno.geometry(f"{screen_width}x{screen_height}")
     okno.configure(bg="#e2dbd8")
 
     # --- Przycisk powrotu
@@ -48,15 +55,17 @@ def uruchom_okno_prowadzacy():
         dane["status"] = "start"
         if "gracze" not in dane:
             dane["gracze"] = []
-        
+
         with open("gra_status.json", "w", encoding="utf-8") as f:
             json.dump(dane, f, indent=2)
+
     tk.Button(okno, text="Start gry", command=start_gra).place(x=500, y=300)
 
     # --- Reset gry
     def reset_gra():
         with open("gra_status.json", "w", encoding="utf-8") as f:
             json.dump({"status": "oczekiwanie", "gracze": []}, f)
+
     tk.Button(okno, text="Reset gry", command=reset_gra).place(x=500, y=350)
 
     # --- Zamknięcie okna
@@ -64,6 +73,7 @@ def uruchom_okno_prowadzacy():
         with open("gra_status.json", "w", encoding="utf-8") as f:
             json.dump({"status": "oczekiwanie", "gracze": []}, f)
         okno.destroy()
+
     okno.protocol("WM_DELETE_WINDOW", on_closing)
 
     # --- RANKING (tekst + aktualizacja)
@@ -81,7 +91,8 @@ def uruchom_okno_prowadzacy():
             gracze = sorted(dane.get("gracze", []), key=lambda x: -x["ects"])
             ranking_canvas.delete("all")
             for idx, g in enumerate(gracze):
-                ranking_canvas.create_text(105, 40 + idx * 30, text=f"{g['login']}:  {g['ects']}", fill="white", font=("Arial", 14))
+                ranking_canvas.create_text(105, 40 + idx * 30, text=f"{g['login']}:  {g['ects']}", fill="white",
+                                           font=("Arial", 14))
         except:
             pass
         okno.after(1000, odswiez_ranking)

@@ -21,7 +21,12 @@ def uruchom_okno_student(login):
     okno = tk.Tk()
     gracz = Student(login, 0)
     okno.title("Okno Studenta")
-    okno.geometry("1920x1080")
+
+    # Dynamiczne ustawienie rozmiaru okna
+    screen_width = okno.winfo_screenwidth()
+    screen_height = okno.winfo_screenheight()
+    okno.geometry(f"{screen_width}x{screen_height}")
+
     okno.configure(bg="#e2dbd8")
     def zarejestruj_gracza(login):
         try:
@@ -96,9 +101,8 @@ def uruchom_okno_student(login):
 
     def po_rzucie(wynik1, wynik2):
         suma = wynik1 + wynik2
-        stare_pole = gracz.pionek.ruch(4)
-        gracz.pionek.wyswietlPionek(plansza_do_gry, 0, stare_pole)
-        sprawdz_pole()
+        gracz.pionek.animowany_ruch(plansza_do_gry, 0, suma, sprawdz_pole)
+
     dodaj_przycisk_rzutu(okno, label1, label2, grafiki_kostek, po_rzucie)
     # === ŁADOWANIE PYTAŃ ===
     

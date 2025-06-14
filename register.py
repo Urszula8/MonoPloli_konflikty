@@ -7,7 +7,11 @@ def uruchom_rejestracje(prev_window):
     prev_window.destroy()
     root = tk.Tk()
     root.title("Rejestracja")
-    root.geometry("1920x1080")
+
+    # Dynamiczne dopasowanie rozmiaru okna
+    screen_width = root.winfo_screenwidth()
+    screen_height = root.winfo_screenheight()
+    root.geometry(f"{screen_width}x{screen_height}")
     root.configure(bg="#e2dbd8")
 
     tk.Label(root, text="Nowy login:").pack(pady=5)

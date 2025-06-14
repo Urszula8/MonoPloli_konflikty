@@ -33,7 +33,7 @@ class Plansza:
 
     def Rysuj(self):
         for p in self.pola:
-            p.tlo = tk.Canvas(self.okno, width=POLE_X, height=POLE_Y, bg="#e2dbd8")
+            p.tlo = tk.Canvas(self.okno, width=POLE_X, height=POLE_Y, bg="#e2dbd8", highlightthickness=0, bd=0)
             p.tlo.place(x=p.x, y=p.y)
             p.tlo.create_image(POLE_X/2+2,POLE_Y/2+1,image=p.photo)
 

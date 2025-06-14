@@ -10,8 +10,12 @@ SCIEZKA_PLIKU_JSON = "baza_pytan.json"
 def uruchom_edycje():
     edytor = tk.Tk()
     edytor.title("Edycja Bazy Pytań")
-    edytor.geometry("1000x750")
-    edytor.configure(bg="#f2f2f2")
+
+    # Automatyczny rozmiar okna
+    screen_width = edytor.winfo_screenwidth()
+    screen_height = edytor.winfo_screenheight()
+    edytor.geometry(f"{screen_width}x{screen_height}")
+    edytor.configure(bg="#e2dbd8")
 
     questions = []  # Lista przechowująca pytania jako słowniki
 

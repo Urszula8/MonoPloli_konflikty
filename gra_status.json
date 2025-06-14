@@ -3,7 +3,13 @@
   "gracze": [
     {
       "login": "i",
-      "ects": 6
+
+      "ects": 1
+    },
+    {
+      "login": "Szymon",
+      "ects": 2
+
     }
   ]
 }
