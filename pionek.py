@@ -43,3 +43,10 @@ class Pionek:
             pole = (aktualne_pole + i) % LICZBA_POL
             kroki.append(pole)
 
+        def wykonaj_krok():
+            if not kroki:
+                if callback:
+                    callback()
+                return
+
+
