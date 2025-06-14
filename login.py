@@ -37,6 +37,8 @@ def uruchom_logowanie(prev_window):
     tk.Button(root, text="Zaloguj", command=zaloguj).pack(pady=10)
     tk.Button(root, text="Powrót", command=lambda: powrot_do_ekranu_wyboru(root)).pack(pady=10)
 
+    root.bind('<Return>', lambda event: zaloguj())
+
     root.mainloop()
 
 def powrot_do_ekranu_wyboru(current_root):
