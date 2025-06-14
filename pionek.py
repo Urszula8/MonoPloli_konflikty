@@ -61,5 +61,8 @@ class Pionek:
             image=plansza.pola[self.numerPola].pionek[self.kolor]
         )
 
+        plansza.okno.after(300, wykonaj_krok)
+        wykonaj_krok()
+
 
 
