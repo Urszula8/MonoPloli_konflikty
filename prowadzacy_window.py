@@ -77,11 +77,10 @@ def uruchom_okno_prowadzacy():
     okno.protocol("WM_DELETE_WINDOW", on_closing)
 
     # --- RANKING (tekst + aktualizacja)
-    ranking_tlo = tk.Canvas(okno, width=300, height=500, bg="#750006")
-    ranking_tlo.place(x=50, y=150)
-    ranking_tlo.create_text(150, 30, text="RANKING GRACZY", fill="white", font=("Arial", 18, "bold"))
-
-    ranking_canvas = tk.Canvas(okno, width=210, height=450, bg="#750006", highlightthickness=0)
+    ranking_tlo = tk.Canvas(okno, width=210, height=500, bg="#750006")
+    ranking_tlo.place(x=50, y=200)
+    ranking_tlo.create_text(105, 35, text="RANKING: ", fill="white", font='Inter 25')
+    ranking_canvas = tk.Canvas(okno, width=210, height=500, bg="#750006", highlightthickness=0)
     ranking_canvas.place(x=50, y=240)
 
     def odswiez_ranking():
@@ -91,10 +90,10 @@ def uruchom_okno_prowadzacy():
             gracze = sorted(dane.get("gracze", []), key=lambda x: -x["ects"])
             ranking_canvas.delete("all")
             for idx, g in enumerate(gracze):
-                ranking_canvas.create_text(105, 40 + idx * 30, text=f"{g['login']}:  {g['ects']}", fill="white",
-                                           font=("Arial", 14))
+                ranking_canvas.create_text(105, 50 + idx * 30, text=f"{g['login']}:  {g['ects']}", fill="white", font=("Arial", 14))
         except:
             pass
         okno.after(1000, odswiez_ranking)
+    odswiez_ranking()
 
     okno.mainloop()
