@@ -26,7 +26,7 @@ def main():
     logo_img = Image.open("logo.png")
     logo_photo = ImageTk.PhotoImage(logo_img)
 
-    student_img = Image.open("student.png")
+    student_img = Image.open("student.png").resize((400,100))
     student_photo = ImageTk.PhotoImage(student_img)
 
     prowadzacy_img = Image.open("prowadzacy.png")
