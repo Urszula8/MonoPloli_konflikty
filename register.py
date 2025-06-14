@@ -45,6 +45,8 @@ def uruchom_rejestracje(prev_window):
     tk.Button(root, text="Zarejestruj", command=zarejestruj).pack(pady=10)
     tk.Button(root, text="Powrót", command=lambda: powrot_do_ekranu_wyboru(root)).pack(pady=10)
 
+    root.bind('<Return>', lambda event: zarejestruj())
+
     root.mainloop()
 
 def powrot_do_ekranu_wyboru(current_root):

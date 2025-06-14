@@ -13,5 +13,10 @@
         "login": "i",
         "haslo_hash": "de7d1b721a1e0632b7cf04edf5032c8ecffa9f9a08492152b926f1a5a7e765d7",
         "rola": "student"
+    },
+    {
+        "login": "test",
+        "haslo_hash": "9f86d081884c7d659a2feaa0c55ad015a3bf4f1b2b0b822cd15d6c15b0f00a08",
+        "rola": "student"
     }
 ]
