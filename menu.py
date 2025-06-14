@@ -29,7 +29,7 @@ def main():
     student_img = Image.open("student.png").resize((400,100))
     student_photo = ImageTk.PhotoImage(student_img)
 
-    prowadzacy_img = Image.open("prowadzacy.png")
+    prowadzacy_img = Image.open("prowadzacy.png").resize((400,100))
     prowadzacy_photo = ImageTk.PhotoImage(prowadzacy_img)
 
     # Tworzenie tła
