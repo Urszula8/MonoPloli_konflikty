@@ -77,11 +77,13 @@ def uruchom_okno_prowadzacy():
     okno.protocol("WM_DELETE_WINDOW", on_closing)
 
     # --- RANKING (tekst + aktualizacja)
-    ranking_tlo = tk.Canvas(okno, width=210, height=500, bg="#750006")
-    ranking_tlo.place(x=50, y=200)
-    ranking_tlo.create_text(105, 35, text="RANKING: ", fill="white", font='Inter 25')
-    ranking_canvas = tk.Canvas(okno, width=210, height=500, bg="#750006", highlightthickness=0)
-    ranking_canvas.place(x=50, y=240)
+    ranking_header = tk.Canvas(okno, width=227, height=50, bg="#750006", highlightthickness=0)
+    ranking_header.place(x=50, y=200)
+    ranking_header.create_text(113, 25, text="RANKING:", fill="white", font=('Inter', 20, 'bold'))
+
+    # Lista rankingowa
+    ranking_canvas = tk.Canvas(okno, width=227, height=450, bg="#750006", highlightthickness=0)
+    ranking_canvas.place(x=50, y=250)
 
     def odswiez_ranking():
         try:
@@ -90,10 +92,17 @@ def uruchom_okno_prowadzacy():
             gracze = sorted(dane.get("gracze", []), key=lambda x: -x["ects"])
             ranking_canvas.delete("all")
             for idx, g in enumerate(gracze):
-                ranking_canvas.create_text(105, 50 + idx * 30, text=f"{g['login']}:  {g['ects']}", fill="white", font=("Arial", 14))
-        except:
-            pass
+                ranking_canvas.create_text(
+                    113, 20 + idx * 30,
+                    text=f"{g['login']}:  {g['ects']}",
+                    fill="white",
+                    font=("Arial", 14)
+                )
+        except Exception as e:
+            print(f"[Błąd odświeżania rankingu]: {e}")
+
         okno.after(1000, odswiez_ranking)
+
     odswiez_ranking()
 
     okno.mainloop()
