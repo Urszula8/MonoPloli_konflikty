@@ -45,13 +45,13 @@
     "text": "Sesja egzaminacyjna nr 4: Który wynik jest poprawny dla 4*2?",
     "type": "Sesja egzaminacyjna",
     "options": "A) 5, B) 8, C) 12, D) 16",
-    "correct": "B"
+    "correct": "B) 8"
   },
   {
     "text": "Sesja egzaminacyjna nr 1: Który wynik jest poprawny dla 1*2?",
     "type": "Sesja egzaminacyjna",
     "options": "A) 2, B) 2, C) 3, D) 4",
-    "correct": "B"
+    "correct": "B) 2"
   },
   {
     "text": "Sesja egzaminacyjna nr 6: Który wynik jest poprawny dla 6*2?",
