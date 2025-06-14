@@ -19,7 +19,12 @@ def uruchom_okno_student(login):
     okno = tk.Tk()
     gracz = Student(login, 0)
     okno.title("Okno Studenta")
-    okno.geometry("1920x1080")
+
+    # Dynamiczne ustawienie rozmiaru okna
+    screen_width = okno.winfo_screenwidth()
+    screen_height = okno.winfo_screenheight()
+    okno.geometry(f"{screen_width}x{screen_height}")
+
     okno.configure(bg="#e2dbd8")
     def zarejestruj_gracza(login):
         try:
