@@ -35,4 +35,11 @@ class Pionek:
             image=plansza.pola[self.numerPola].pionek[self.kolor]
         )
 
+    def animowany_ruch(self, plansza, ktoryPionek, liczbaPol, callback=None):
+        kroki = []
+        aktualne_pole = self.numerPola
+
+        for i in range(1, liczbaPol + 1):
+            pole = (aktualne_pole + i) % LICZBA_POL
+            kroki.append(pole)
 
