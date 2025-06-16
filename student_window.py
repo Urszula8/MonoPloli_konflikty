@@ -73,7 +73,7 @@ def uruchom_okno_student(login):
     # Nagłówek RANKING
     ranking_header = tk.Canvas(okno, width=227, height=50, bg="#750006", highlightthickness=0)
     ranking_header.place(x=50, y=200)
-    ranking_header.create_text(113, 25, text="Konflikt:", fill="blue", font=('Inter', 20, 'bold'))
+    ranking_header.create_text(113, 25, text="ECTSY:", fill="blue", font=('Inter', 20, 'bold'))
 
     # Lista rankingowa
     ranking_canvas = tk.Canvas(okno, width=227, height=450, bg="#750006", highlightthickness=0)
